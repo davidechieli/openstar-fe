@@ -1,0 +1,37 @@
+@import '../../../shared/color.scss';
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: $gray;
+    color: $font-dark-gray;
+  }
+  
+  .header-left, .header-center, .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+ .header-center nav {
+    margin: 0 auto; /* Center the navigation */
+  }
+  
+  .header-center a {
+    margin-right: 20px;
+    color: $font-dark-gray;
+    text-decoration: none;
+  }
+  .header-center a.active{
+      color: $primary; /* Set the color of visited links to blue */
+  }
+  
+  .header-center a:last-child {
+    margin-right: 0;
+  }
+  
+  .header-right a {
+    color: $primary;
+    text-decoration: none;
+  }
+ 

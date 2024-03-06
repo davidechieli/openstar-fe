@@ -1,0 +1,8 @@
+@import '../../../shared/color.scss';
+ 
+.background-transition {
+    background: linear-gradient(to top, #DDF4F6 80%, #f7f7f7); /* Gradient from #DDF4F6 to off-white */
+    height: 100vh; /* Set the height to cover the entire viewport */
+    transition: background-position 0.5s ease; /* Transition for background position change */
+    background-position: 0 100%; /* Start the gradient from the bottom */
+  }
