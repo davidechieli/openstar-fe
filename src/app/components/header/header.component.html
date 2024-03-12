@@ -1,24 +1,101 @@
 <header class="header">
-  <div class="header-left">
-    <!-- Left icon -->
-    <mat-icon>menu</mat-icon>
-  </div>
-  <div class="header-center">
-    <!-- Navigation -->
-    <nav>
-      <a routerLink="/homepage/my-esg-commitments" routerLinkActive="active"
-        >ESG Commitments</a
-      >
-      <a routerLink="/homepage/permissions" routerLinkActive="active"
-        >Permissions</a
-      >
-      <a routerLink="/homepage/explore-more" routerLinkActive="active"
-        >Explore More</a
-      >
-    </nav>
-  </div>
-  <div class="header-right">
-    <!-- My account -->
-    <a routerLink="/homepage/my-account">My account</a>
-  </div>
+	<div class="header-left">
+		<!-- Left icon -->
+		<a routerLink="/openstar">
+			<svg
+				width="35"
+				height="35"
+				viewBox="0 0 35 35"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M12.2566 8.67729H9.16535V11.9855C9.16535 13.9324 10.7436 15.5107 12.6905 15.5107H15.7818V12.2024C15.7818 10.2556 14.2035 8.67729 12.2566 8.67729ZM12.3633 10.3043H10.7923V12.0372C10.7923 13.057 11.5944 13.8837 12.5838 13.8837H14.1548V12.1508C14.1548 11.131 13.3527 10.3043 12.3633 10.3043Z"
+					fill="#28A6B2"
+				/>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M22.9948 8.67729H26.0861V11.9855C26.0861 13.9324 24.5078 15.5107 22.5609 15.5107H19.4696V12.2024C19.4696 10.2556 21.0479 8.67729 22.9948 8.67729ZM22.8881 10.3043H24.4591V12.0372C24.4591 13.057 23.657 13.8837 22.6676 13.8837H21.0966V12.1508C21.0966 11.131 21.8987 10.3043 22.8881 10.3043Z"
+					fill="#28A6B2"
+				/>
+				<path
+					d="M15.4564 13.8837H19.795V15.5107H15.4564V13.8837Z"
+					fill="#28A6B2"
+				/>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M15.2367 2.18587L17.4225 0L19.7618 2.33926C21.1385 3.71592 21.1385 5.94792 19.7618 7.32458L17.5759 9.51045L15.2367 7.17119C13.86 5.79453 13.86 3.56253 15.2367 2.18587ZM16.3117 3.41177L17.4225 2.30091L18.6479 3.52624C19.369 4.24735 19.3864 5.39907 18.6868 6.09868L17.5759 7.20953L16.3506 5.9842C15.6295 5.2631 15.6121 4.11138 16.3117 3.41177Z"
+					fill="#28A6B2"
+				/>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M15.2367 27.6754L17.4225 25.4896L19.7618 27.8288C21.1385 29.2055 21.1385 31.4375 19.7618 32.8141L17.5759 35L15.2367 32.6607C13.86 31.2841 13.86 29.0521 15.2367 27.6754ZM16.3117 28.9013L17.4225 27.7905L18.6479 29.0158C19.369 29.7369 19.3864 30.8886 18.6868 31.5882L17.5759 32.6991L16.3506 31.4738C15.6295 30.7527 15.6121 29.6009 16.3117 28.9013Z"
+					fill="#28A6B2"
+				/>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M32.8141 15.0747L35 17.2606L32.6607 19.5999C31.2841 20.9765 29.0521 20.9765 27.6754 19.5999L25.4896 17.414L27.8288 15.0747C29.2055 13.6981 31.4375 13.6981 32.8141 15.0747ZM31.5883 16.1498L32.6991 17.2606L31.4738 18.4859C30.7527 19.207 29.601 19.2245 28.9014 18.5249L27.7905 17.414L29.0158 16.1887C29.7369 15.4676 30.8887 15.4501 31.5883 16.1498Z"
+					fill="#28A6B2"
+				/>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M7.32458 15.0747L9.51045 17.2606L7.17119 19.5999C5.79453 20.9765 3.56253 20.9765 2.18587 19.5999L0 17.414L2.33926 15.0747C3.71592 13.6981 5.94792 13.6981 7.32458 15.0747ZM6.09872 16.1498L7.20957 17.2606L5.98424 18.4859C5.26313 19.207 4.11141 19.2245 3.4118 18.5249L2.30095 17.414L3.52628 16.1887C4.24738 15.4676 5.3991 15.4501 6.09872 16.1498Z"
+					fill="#28A6B2"
+				/>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M22.9948 25.4896H26.0861V22.1813C26.0861 20.2344 24.5078 18.6562 22.5609 18.6562H19.4696V21.9644C19.4696 23.9113 21.0479 25.4896 22.9948 25.4896ZM22.8881 23.8626H24.4591V22.1297C24.4591 21.1099 23.657 20.2832 22.6676 20.2832H21.0966V22.016C21.0966 23.0358 21.8987 23.8626 22.8881 23.8626Z"
+					fill="#28A6B2"
+				/>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M12.2566 25.4896H9.16535V22.1813C9.16535 20.2344 10.7436 18.6562 12.6905 18.6562L15.7818 18.6562V21.9644C15.7818 23.9113 14.2035 25.4896 12.2566 25.4896ZM12.3633 23.8626H10.7923V22.1297C10.7923 21.1099 11.5944 20.2832 12.5838 20.2832H14.1548V22.016C14.1548 23.0358 13.3527 23.8626 12.3633 23.8626Z"
+					fill="#28A6B2"
+				/>
+				<path
+					d="M19.795 20.2832H15.4564V18.6562H19.795V20.2832Z"
+					fill="#28A6B2"
+				/>
+			</svg>
+		</a>
+	</div>
+	<div class="header-center">
+		<!-- Navigation -->
+		<nav>
+			<a routerLink="/openstar/my-esg-identity" routerLinkActive="active"
+				>ESG Identity</a
+			>
+			<a routerLink="/openstar/permissions" routerLinkActive="active"
+				>Permissions</a
+			>
+			<a routerLink="/openstar/explore-more" routerLinkActive="active"
+				>Explore More</a
+			>
+		</nav>
+	</div>
+	<div class="header-right">
+		<!-- My account -->
+		<a
+			[href]="
+				this.authEndpoint +
+				'?' +
+				serializeParams({
+					response_type: 'code',
+					client_id: 'open-star',
+					redirect_uri: 'http://localhost:4200/login',
+					scope: 'openid profile email'
+				})
+			"
+			>Log in</a
+		>
+	</div>
 </header>

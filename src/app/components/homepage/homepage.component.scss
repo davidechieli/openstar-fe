@@ -2,7 +2,23 @@
  
 .background-transition {
     background: linear-gradient(to top, #DDF4F6 80%, #f7f7f7); /* Gradient from #DDF4F6 to off-white */
-    height: 100vh; /* Set the height to cover the entire viewport */
     transition: background-position 0.5s ease; /* Transition for background position change */
     background-position: 0 100%; /* Start the gradient from the bottom */
   }
+
+  .subtitle{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    color: $font-darkgray;
+  }
+h1{
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 56px;  
+}
+
+
+

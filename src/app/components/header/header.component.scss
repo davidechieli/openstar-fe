@@ -5,7 +5,7 @@
     align-items: center;
     padding: 10px;
     background-color: $gray;
-    color: $font-dark-gray;
+    color: $font-darkgray;
   }
   
   .header-left, .header-center, .header-right {
@@ -19,7 +19,7 @@
   
   .header-center a {
     margin-right: 20px;
-    color: $font-dark-gray;
+    color: $font-darkgray;
     text-decoration: none;
   }
   .header-center a.active{
@@ -33,5 +33,6 @@
   .header-right a {
     color: $primary;
     text-decoration: none;
+    cursor: pointer;
   }
  
