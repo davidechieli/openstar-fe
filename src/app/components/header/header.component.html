@@ -90,9 +90,9 @@
 				'?' +
 				serializeParams({
 					response_type: 'code',
-					client_id: 'open-star',
-					redirect_uri: 'http://localhost:4200/login',
-					scope: 'openid profile email'
+					client_id: env.client_id,
+					redirect_uri:  env.redirect_uri,
+					scope:  env.scope,
 				})
 			"
 			>Log in</a

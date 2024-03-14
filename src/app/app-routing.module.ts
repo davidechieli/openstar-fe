@@ -4,6 +4,7 @@ import { ExploreMoreComponent } from "./components/explore-more/explore-more.com
 import { HomepageComponent } from "./components/homepage/homepage.component";
 import { MyEsgIdentityComponent } from "./components/my-esg-commitment/my-esg-identity.component";
 import { PermissionsComponent } from "./components/permissions/permissions.component";
+import { LoginComponent } from "./components/login/login.component";
 
 const routes: Routes = [
 	{
@@ -15,6 +16,7 @@ const routes: Routes = [
 			{ path: "explore-more", component: ExploreMoreComponent },
 		],
 	},
+	{ path: "login", component: LoginComponent },
 	{ path: "", redirectTo: "openstar", pathMatch: "full" }, // Redirect to home by default
 ];
 

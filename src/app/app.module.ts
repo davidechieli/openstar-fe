@@ -13,6 +13,7 @@ import { PermissionsComponent } from "./components/permissions/permissions.compo
 import { ExploreMoreComponent } from "./components/explore-more/explore-more.component";
 import { HttpClientModule } from "@angular/common/http";
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -22,6 +23,7 @@ import { SearchBarComponent } from "./components/search-bar/search-bar.component
 		PermissionsComponent,
 		ExploreMoreComponent,
 		SearchBarComponent,
+  LoginComponent,
 	],
 	imports: [
 		BrowserModule,
