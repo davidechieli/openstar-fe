@@ -3,6 +3,7 @@ import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { environment } from "../../environments/environment";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
 	selector: "app-homepage",
@@ -12,11 +13,13 @@ import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 export class HomepageComponent {
 	authEndpoint: any = "";
 
-	constructor(public httpClient: HttpClient, public route: Router) {}
-	ngOnInit(): void {
-		this.httpClient
-			.get<{ authorization_endpoint: string }>(environment.authorityUrl)
-			.subscribe((res) => (this.authEndpoint = res.authorization_endpoint));
+	constructor(
+		public httpClient: HttpClient,
+		public route: Router,
+		private authService: AuthService
+	) {}
+	async ngOnInit(): Promise<void> {
+		this.authEndpoint = await this.authService.getAuthorizationUri();
 	}
 	hideLandingPage(): boolean {
 		// Check if the current route is '/openstar'

@@ -1,6 +1,6 @@
 <div class="d-flex">
-	<span class="searchbar-icon"
-		><img src="../../../assets/search-icon.svg" alt="Searchbar icon" />
+	<span class="searchbar-icon">
+		<img src="../../../assets/search-icon.svg" alt="Searchbar icon" />
 	</span>
 	<input
 		type="text"
@@ -8,8 +8,16 @@
 		placeholder="Search for a company"
 		aria-label="Search"
 		aria-describedby="button-addon2"
+		[(ngModel)]="searchQuery"
+		(input)="debouncedSearch()"
 	/>
 	<button class="btn btn-outline-secondary" type="button" id="button-addon2">
 		Explore more
 	</button>
+</div>
+
+<div *ngIf="searchResults.length > 0 && searchQuery" class="search-results">
+	<div *ngFor="let company of searchResults" class="company-item">
+		{{ company.businessName }}
+	</div>
 </div>

@@ -13,9 +13,10 @@ import { PermissionsComponent } from "./components/permissions/permissions.compo
 import { ExploreMoreComponent } from "./components/explore-more/explore-more.component";
 import { HttpClientModule } from "@angular/common/http";
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
-import { LoginComponent } from './components/login/login.component';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { LogoutComponent } from './components/logout/logout.component';
+import { LoginComponent } from "./components/login/login.component";
+import { LandingPageComponent } from "./components/landing-page/landing-page.component";
+import { LogoutComponent } from "./components/logout/logout.component";
+import { FormsModule } from "@angular/forms";
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -25,9 +26,9 @@ import { LogoutComponent } from './components/logout/logout.component';
 		PermissionsComponent,
 		ExploreMoreComponent,
 		SearchBarComponent,
-  LoginComponent,
-  LandingPageComponent,
-  LogoutComponent,
+		LoginComponent,
+		LandingPageComponent,
+		LogoutComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -35,6 +36,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 		SharedModule,
 		NgbModule,
 		HttpClientModule,
+		FormsModule,
 	],
 	providers: [provideAnimationsAsync()],
 	bootstrap: [AppComponent],
