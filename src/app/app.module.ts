@@ -14,6 +14,8 @@ import { ExploreMoreComponent } from "./components/explore-more/explore-more.com
 import { HttpClientModule } from "@angular/common/http";
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
 import { LoginComponent } from './components/login/login.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { LogoutComponent } from './components/logout/logout.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -24,6 +26,8 @@ import { LoginComponent } from './components/login/login.component';
 		ExploreMoreComponent,
 		SearchBarComponent,
   LoginComponent,
+  LandingPageComponent,
+  LogoutComponent,
 	],
 	imports: [
 		BrowserModule,

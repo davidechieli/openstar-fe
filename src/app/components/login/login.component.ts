@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import {
+	ActivatedRoute,
+	NavigationExtras,
+	Route,
+	Router,
+} from "@angular/router";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { IEnvironment, environment } from "../../environments/environment";
 import { AuthService } from "../../services/auth.service";
@@ -12,17 +17,16 @@ import { AuthService } from "../../services/auth.service";
 export class LoginComponent implements OnInit {
 	env: IEnvironment;
 	tokenEndpoint: string = ""; // Define authEndpoint here
-	token: string = "";
 
 	constructor(
 		private route: ActivatedRoute,
 		private http: HttpClient,
-		private authService: AuthService
+		private authService: AuthService,
+		private router: Router
 	) {
 		this.env = environment;
 	}
 	ngOnInit(): void {
-		console.log("HELLO");
 		this.route.queryParams.subscribe((params) => {
 			this.exchangeCodeWithToken(params["code"]);
 		});
@@ -44,9 +48,18 @@ export class LoginComponent implements OnInit {
 			);
 			this.http
 				.post<any>(this.tokenEndpoint, body.toString(), { headers: headers })
-				.subscribe((res) => {
-					this.authService.token = res.access_token;
-				});
+				.subscribe(
+					(res) => {
+						this.authService.login(res);
+
+						this.router.navigate(["/openstar"]);
+					},
+					(error) => {
+						// Error response
+						console.error("Error occurred:", error);
+						// Handle error logic such as displaying an error message
+					}
+				);
 		});
 	}
 }

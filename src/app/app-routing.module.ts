@@ -5,6 +5,7 @@ import { HomepageComponent } from "./components/homepage/homepage.component";
 import { MyEsgIdentityComponent } from "./components/my-esg-commitment/my-esg-identity.component";
 import { PermissionsComponent } from "./components/permissions/permissions.component";
 import { LoginComponent } from "./components/login/login.component";
+import { LogoutComponent } from "./components/logout/logout.component";
 
 const routes: Routes = [
 	{
@@ -17,6 +18,7 @@ const routes: Routes = [
 		],
 	},
 	{ path: "login", component: LoginComponent },
+	{ path: "logout", component: LogoutComponent },
 	{ path: "", redirectTo: "openstar", pathMatch: "full" }, // Redirect to home by default
 ];
 

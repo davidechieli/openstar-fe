@@ -70,7 +70,7 @@
 	</div>
 	<div class="header-center">
 		<!-- Navigation -->
-		<nav>
+		<nav [hidden]="!isLogged">
 			<a routerLink="/openstar/my-esg-identity" routerLinkActive="active"
 				>ESG Identity</a
 			>
@@ -82,10 +82,11 @@
 			>
 		</nav>
 	</div>
-	<div class="header-right">
-		<!-- My account -->
-		<a
-			[href]="
+	<ng-container *ngIf="!isLogged">
+		<div class="header-right">
+			<!-- My account -->
+			<a
+				[href]="
 				this.authEndpoint +
 				'?' +
 				serializeParams({
@@ -95,7 +96,34 @@
 					scope:  env.scope,
 				})
 			"
-			>Log in</a
-		>
-	</div>
+				>Log in</a
+			>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="isLogged">
+		<div class="header-right">
+			<!-- My account -->
+			<a
+				[matMenuTriggerFor]="accountMenu"
+				class="mat-menu-trigger text-decoration-none pointer"
+			>
+				My account
+			</a>
+			<mat-menu #accountMenu="matMenu">
+				<button mat-menu-item>Profile</button>
+				<button mat-menu-item>
+					<a
+						[href]="
+					this.logoutEndpoint +
+					'?' +
+					serializeParams({
+						post_logout_redirect_uri:  env.redirect_logout_uri,
+						id_token_hint: idToken,
+					})"
+						>Logout
+					</a>
+				</button>
+			</mat-menu>
+		</div>
+	</ng-container>
 </header>

@@ -1,21 +1,5 @@
 <body class="background-transition">
 	<app-header [authEndpoint]="authEndpoint"></app-header>
-	<div class="">
-		<div
-			class="d-flex flex-column col-md-12 pt-5 justify-content-center align-items-center"
-		>
-			<img src="../../../assets/openstar-icon.svg" alt="Openstar icon" />
-			<h1 class="pt-5">Welcome to the Open* Test App</h1>
-			<div class="d-flex justify-content-center align-items-center"></div>
-			<h3 class="subtitle pt-4 d-flex my-0">
-				The Test App for easily and securely share your sustainability <br />
-			</h3>
-			<h3 class="subtitle p-0 m-0">
-				data with the standard decentralized protocol <br />
-			</h3>
-			<div class="mt-5">
-				<app-search-bar></app-search-bar>
-			</div>
-		</div>
-	</div>
+	<app-landing-page [hidden]="hideLandingPage()"></app-landing-page>
+	<router-outlet></router-outlet>
 </body>
