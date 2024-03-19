@@ -1,0 +1,50 @@
+@import '../../../shared/color.scss';
+@import '../../../shared/font.scss';
+
+.card-container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+width: 901px;
+height: 494px;
+background: $primary;
+border: none;
+border-radius: 12px;
+}
+.card-detail-container{
+
+}
+
+.minicard-container{ 
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    width: 438.5px;
+    height: 200px;
+    background: $white;
+    border: 1px solid #ADB5BD;
+    border-radius: 12px;
+}
+.minicard-title{
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+padding: 24px 24px 16px 24px;
+margin:0;
+}
+.minicard-content{
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+color: $font-gray;
+margin:0;
+padding: 0 24px;
+}
+.minicard-footer{
+    padding:  30px 24px 18px 24px;
+    color:$primary;
+    text-decoration: none;
+
+}
