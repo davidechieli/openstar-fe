@@ -19,7 +19,6 @@ export class AuthService {
 	}
 
 	async getAuthorizationUri(): Promise<string> {
-		debugger;
 		if (!this.authorizationEndpoint) {
 			this.authorizationEndpoint = await this.getDirectAuthorizationUri();
 		}

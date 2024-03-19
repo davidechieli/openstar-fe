@@ -11,13 +11,31 @@
 		[(ngModel)]="searchQuery"
 		(input)="debouncedSearch()"
 	/>
-	<button class="btn btn-outline-secondary" type="button" id="button-addon2">
-		Explore more
-	</button>
+	<a routerLink="/openstar/explore-more">
+		<button class="btn btn-outline-secondary" type="button" id="button-addon2">
+			Explore more
+		</button>
+	</a>
 </div>
 
-<div *ngIf="searchResults.length > 0 && searchQuery" class="search-results">
-	<div *ngFor="let company of searchResults" class="company-item">
-		{{ company.businessName }}
+<div
+	*ngIf="searchResults.length > 0 && searchQuery"
+	class="pl-5 mt-1 search-results"
+>
+	<div
+		class="company-item"
+		*ngFor="let company of searchResults; index as i"
+		[ngClass]="{ 'pt-3': i === 0, 'pt-1': i !== 0 }"
+	>
+		<span class="col-5 pl3">
+			<strong>{{ company.businessName }}</strong>
+		</span>
+		<span class="col-2 pr-3"> Open* </span>
+		<span class="col-5 primary pl3">
+			View ESG Identity Card
+			<a routerLink="/openstar/my-esg-identity"
+				><img class="arrow-icon pl-3" src="../../../assets/NE_arrow.svg"
+			/></a>
+		</span>
 	</div>
 </div>
