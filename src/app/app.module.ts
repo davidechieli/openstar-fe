@@ -17,8 +17,9 @@ import { LoginComponent } from "./components/login/login.component";
 import { LandingPageComponent } from "./components/landing-page/landing-page.component";
 import { LogoutComponent } from "./components/logout/logout.component";
 import { FormsModule } from "@angular/forms";
-import { PersonalPageComponent } from './components/personal-page/personal-page.component';
-import { IdentityCardComponent } from './components/identity-card/identity-card.component';
+import { PersonalPageComponent } from "./components/personal-page/personal-page.component";
+import { IdentityCardComponent } from "./components/identity-card/identity-card.component";
+import { BreadcrumbComponent } from "./components/breadcrumb/breadcrumb.component";
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -31,8 +32,9 @@ import { IdentityCardComponent } from './components/identity-card/identity-card.
 		LoginComponent,
 		LandingPageComponent,
 		LogoutComponent,
-  PersonalPageComponent,
-  IdentityCardComponent,
+		PersonalPageComponent,
+		IdentityCardComponent,
+		BreadcrumbComponent,
 	],
 	imports: [
 		BrowserModule,

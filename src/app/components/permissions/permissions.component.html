@@ -1,1 +1,10 @@
-<p>permissions works!</p>
+<ng-container>
+	<div class="permission-container">
+		<app-breadcrumb [breadcrumbItems]="permissionBreadcrumb"></app-breadcrumb>
+		<div class="d-flex flex-direction-row align-items-center gap-5">
+			<h1 class="permission-title">My Permissions</h1>
+			<span class="">Public</span>
+			<mat-slide-toggle [(ngModel)]="toggleValue"></mat-slide-toggle>
+		</div>
+	</div>
+</ng-container>

@@ -1,0 +1,17 @@
+<nav class="p-3" aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li
+			*ngFor="let item of breadcrumbItems; let last = last"
+			class="breadcrumb-item primary"
+		>
+			<a
+				class="text-decoration-none breadcrumb-item"
+				*ngIf="!last"
+				[routerLink]="item.link"
+				>{{ item.label }}</a
+			>
+			<span *ngIf="last">{{ item.label }}</span>
+			<span class="separator" *ngIf="!last">&nbsp;&nbsp;&nbsp;</span>
+		</li>
+	</ol>
+</nav>
