@@ -6,6 +6,7 @@ import { MyEsgIdentityComponent } from "./components/my-esg-commitment/my-esg-id
 import { PermissionsComponent } from "./components/permissions/permissions.component";
 import { LoginComponent } from "./components/login/login.component";
 import { LogoutComponent } from "./components/logout/logout.component";
+import { PersonalPageComponent } from "./components/personal-page/personal-page.component";
 
 const routes: Routes = [
 	{
@@ -15,6 +16,7 @@ const routes: Routes = [
 			{ path: "my-esg-identity", component: MyEsgIdentityComponent },
 			{ path: "permissions", component: PermissionsComponent },
 			{ path: "explore-more", component: ExploreMoreComponent },
+			{ path: "my-identity-card", component: PersonalPageComponent },
 		],
 	},
 	{ path: "login", component: LoginComponent },

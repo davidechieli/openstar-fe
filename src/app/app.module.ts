@@ -17,6 +17,8 @@ import { LoginComponent } from "./components/login/login.component";
 import { LandingPageComponent } from "./components/landing-page/landing-page.component";
 import { LogoutComponent } from "./components/logout/logout.component";
 import { FormsModule } from "@angular/forms";
+import { PersonalPageComponent } from './components/personal-page/personal-page.component';
+import { IdentityCardComponent } from './components/identity-card/identity-card.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -29,6 +31,8 @@ import { FormsModule } from "@angular/forms";
 		LoginComponent,
 		LandingPageComponent,
 		LogoutComponent,
+  PersonalPageComponent,
+  IdentityCardComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -85,7 +85,7 @@ export class AuthService {
 				.subscribe((res) => {
 					this.login(res);
 
-					this.router.navigate(["/openstar"]);
+					this.router.navigate(["/openstar/my-identity-card"]);
 				});
 		});
 	}
