@@ -1,5 +1,5 @@
 @import '../../../shared/color.scss';
- 
+@import '../../../shared/font.scss';
 .customized{
 display: flex;
 flex-direction: row;
@@ -52,6 +52,7 @@ border: none;
 .company-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .pl3{
   padding-left:20px;
