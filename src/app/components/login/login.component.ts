@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
 		private authService: AuthService
 	) {}
 	ngOnInit(): void {
-		this.route.queryParams.subscribe((params) => {
-			this.authService.exchangeCodeWithToken(params["code"]);
+		this.route.queryParams.subscribe(async (params) => {
+			await this.authService.exchangeCodeWithToken(params["code"]);
 		});
 	}
 }

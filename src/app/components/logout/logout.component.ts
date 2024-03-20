@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 export class LogoutComponent implements OnInit {
 	constructor(private route: Router) {}
 	ngOnInit(): void {
+		localStorage.removeItem("metadata");
 		this.route.navigate(["/openstar"]);
 	}
 }

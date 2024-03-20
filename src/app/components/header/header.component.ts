@@ -15,9 +15,6 @@ export class HeaderComponent implements OnInit {
 	logoutEndpoint!: string;
 	constructor(private authService: AuthService) {
 		this.env = environment;
-		authService.getLogoutEndpoint().subscribe((res) => {
-			this.logoutEndpoint = res.end_session_endpoint;
-		});
 		this.idToken = authService.idToken;
 	}
 	@Input() authEndpoint!: string;
@@ -27,7 +24,9 @@ export class HeaderComponent implements OnInit {
 			.join("&");
 		return queryString;
 	}
-	ngOnInit(): void {
+	async ngOnInit(): Promise<void> {
 		this.isLogged = this.authService.isLoggedIn();
+		if (this.isLogged)
+			this.logoutEndpoint = await this.authService.getLogoutEndpoint();
 	}
 }

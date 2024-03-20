@@ -19,7 +19,7 @@ export class ApiService {
 		// 	Authorization: this.authService.getAccessToken(),
 		// });
 		return this.httpClient.get<ICompanies[]>(
-			`${environment.apiUrl}${Endpoint.COMMUNITY}/1/company/company/list`
+			`${environment.apiUrl}${Endpoint.COMMUNITY}/1/company/list`
 			//{ headers: headers }
 		);
 	}
