@@ -3,8 +3,14 @@
 		<app-breadcrumb [breadcrumbItems]="permissionBreadcrumb"></app-breadcrumb>
 		<div class="d-flex flex-direction-row align-items-center gap-5">
 			<h1 class="permission-title">My Permissions</h1>
-			<span class="">Public</span>
-			<mat-slide-toggle [(ngModel)]="toggleValue"></mat-slide-toggle>
+			<!-- Default switch -->
+			<div class="custom-control custom-switch">
+				<label class="mr3"><strong>Public</strong></label>
+				<label class="switch">
+					<input type="checkbox" />
+					<span class="slider round"></span>
+				</label>
+			</div>
 		</div>
 	</div>
 </ng-container>
