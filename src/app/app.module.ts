@@ -20,6 +20,7 @@ import { FormsModule } from "@angular/forms";
 import { PersonalPageComponent } from "./components/personal-page/personal-page.component";
 import { IdentityCardComponent } from "./components/identity-card/identity-card.component";
 import { BreadcrumbComponent } from "./components/breadcrumb/breadcrumb.component";
+import { AuthService } from "./services/auth.service";
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -44,7 +45,7 @@ import { BreadcrumbComponent } from "./components/breadcrumb/breadcrumb.componen
 		HttpClientModule,
 		FormsModule,
 	],
-	providers: [provideAnimationsAsync()],
+	providers: [provideAnimationsAsync(), AuthService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

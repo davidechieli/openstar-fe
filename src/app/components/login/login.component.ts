@@ -1,10 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import {
-	ActivatedRoute,
-	NavigationExtras,
-	Route,
-	Router,
-} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { IEnvironment, environment } from "../../environments/environment";
 import { AuthService } from "../../services/auth.service";
@@ -17,11 +12,14 @@ import { AuthService } from "../../services/auth.service";
 export class LoginComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
+		private router: Router,
 		private authService: AuthService
 	) {}
 	ngOnInit(): void {
-		this.route.queryParams.subscribe(async (params) => {
-			await this.authService.exchangeCodeWithToken(params["code"]);
+		this.route.queryParams.subscribe((params) => {
+			this.authService.exchangeCodeWithToken(params["code"]).subscribe(() => {
+				this.router.navigate(["/openstar/my-identity-card"]);
+			});
 		});
 	}
 }

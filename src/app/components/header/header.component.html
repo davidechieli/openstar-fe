@@ -84,20 +84,8 @@
 	</div>
 	<ng-container *ngIf="!isLogged">
 		<div class="header-right">
-			<!-- My account -->
-			<a
-				[href]="
-				this.authEndpoint +
-				'?' +
-				serializeParams({
-					response_type: 'code',
-					client_id: env.client_id,
-					redirect_uri:  env.redirect_uri,
-					scope:  env.scope,
-				})
-			"
-				>Log in</a
-			>
+			<!-- My account NEED REFACTORING IN AUTH SERVICE-->
+			<a [href]="loginUri">Log in</a>
 		</div>
 	</ng-container>
 	<ng-container *ngIf="isLogged">
@@ -112,16 +100,7 @@
 			<mat-menu #accountMenu="matMenu">
 				<button mat-menu-item>Profile</button>
 				<button mat-menu-item>
-					<a
-						[href]="
-					this.logoutEndpoint +
-					'?' +
-					serializeParams({
-						post_logout_redirect_uri:  env.redirect_logout_uri,
-						id_token_hint: idToken,
-					})"
-						>Logout
-					</a>
+					<a [href]="logoutUri">Logout </a>
 				</button>
 			</mat-menu>
 		</div>

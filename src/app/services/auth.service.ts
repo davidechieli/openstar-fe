@@ -1,12 +1,13 @@
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Inject, Injectable } from "@angular/core";
 import { IEnvironment, environment } from "../environments/environment";
-import { firstValueFrom } from "rxjs";
+import { map, Observable, of, switchMap, tap } from "rxjs";
 import { Router } from "@angular/router";
-import { IMetadata } from "./idp-metadata";
-@Injectable({
-	providedIn: "root",
-})
+import { CodeResponse, IMetadata, TokenResponse } from "./idp-metadata";
+import { SafeUrl } from "@angular/platform-browser";
+import { DOCUMENT } from "@angular/common";
+
+@Injectable()
 export class AuthService {
 	authorizationEndpoint?: string;
 	private accessToken: string | null = null;
@@ -15,63 +16,139 @@ export class AuthService {
 	idToken: string | null = null;
 	env: IEnvironment;
 
-	constructor(public httpClient: HttpClient, private router: Router) {
+	constructor(
+		public httpClient: HttpClient,
+		private router: Router,
+		@Inject(DOCUMENT) private document: Document
+	) {
 		this.env = environment;
-		this.getAccessToken();
 	}
-	async getMetadata(): Promise<IMetadata> {
-		debugger;
+
+	getMetadata(): Observable<IMetadata> {
 		const cachedMetadata = localStorage.getItem("metadata");
+		if (cachedMetadata) return of(JSON.parse(cachedMetadata ?? ""));
 
-		if (cachedMetadata) return JSON.parse(cachedMetadata);
-		const metadata = await firstValueFrom(
-			this.httpClient.get<IMetadata>(environment.authorityUrl)
+		return this.httpClient.get<IMetadata>(this.env.authorityUrl).pipe(
+			map((metadata) => {
+				localStorage.setItem("metadata", JSON.stringify(metadata));
+				return metadata;
+			})
 		);
-		localStorage.setItem("metadata", JSON.stringify(metadata));
-		return metadata;
-	}
-	async getAuthorizationUri(): Promise<string> {
-		return (await this.getMetadata()).authorization_endpoint;
 	}
 
-	login(responseAuth: any): void {
+	getAuthorizationUri(): Observable<string> {
+		return this.getMetadata().pipe(
+			map((metadata: IMetadata) => metadata.authorization_endpoint)
+		);
+	}
+
+	login(responseAuth: TokenResponse): void {
 		this.accessToken = responseAuth.access_token;
 		this.refreshToken = responseAuth.refresh_token;
 		this.idToken = responseAuth.id_token;
 	}
 
-	async getLogoutEndpoint(): Promise<string> {
-		return (await this.getMetadata()).end_session_endpoint;
+	getLoginUrl(): Observable<string> {
+		return this.getAuthorizationUri().pipe(
+			map((authUri) => {
+				console.log(authUri);
+				return (
+					authUri +
+					"?" +
+					this.serializeParams({
+						response_type: "code",
+						client_id: this.env.client_id,
+						redirect_uri: this.env.redirect_uri,
+						scope: this.env.scope,
+					})
+				);
+			})
+		);
 	}
 
-	isLoggedIn(): boolean {
+	getLogoutUrl(): Observable<string> {
+		return this.getLogoutEndpoint().pipe(
+			map((authUri) => {
+				return (
+					authUri +
+					"?" +
+					this.serializeParams({
+						post_logout_redirect_uri: this.env.redirect_logout_uri,
+						id_token_hint: this.idToken,
+					})
+				);
+			})
+		);
+	}
+
+	private serializeParams(params: any): SafeUrl {
+		const queryString = Object.keys(params)
+			.map((key) => key + "=" + params[key])
+			.join("&");
+		return queryString;
+	}
+
+	getLogoutEndpoint(): Observable<string> {
+		return this.getMetadata().pipe(
+			map((metadata) => metadata.end_session_endpoint)
+		);
+	}
+
+	isLoggedIn(): Observable<boolean> {
 		// Verify if there is a valid access token
-		return !!this.accessToken;
+		return this.getAccessToken(false).pipe(map((token) => token != ""));
 	}
 
-	getAccessToken(): string {
+	getAccessToken(redirect: boolean = true): Observable<string> {
 		if (!this.accessToken) {
-			this.accessToken = this.getNewToken();
+			this.getLoginUrl().subscribe((loginUrl) => {
+				if (redirect) this.document.location.href = loginUrl;
+			});
 		} else {
 			const payload = JSON.parse(
 				atob(this.accessToken.split(".")[1].toString())
 			);
 
-			const exp = new Date(payload.exp);
+			const exp = new Date(payload.exp * 1000);
 			if (new Date() > exp) {
-				this.accessToken = this.getNewToken();
+				return this.getNewToken();
 			}
 		}
-		return this.accessToken ?? "";
+
+		return of(this.accessToken ?? "");
 	}
-	//per il refresh
-	getNewToken(): string {
-		return "";
+
+	getNewToken(): Observable<string> {
+		let body = new URLSearchParams();
+		body.set("client_id", this.env.client_id);
+		body.set("client_secret", this.env.client_secret);
+		body.set("grant_type", "refresh_token");
+		body.set("refresh_token", this.refreshToken!);
+
+		const headers = new HttpHeaders().set(
+			"Content-Type",
+			"application/x-www-form-urlencoded"
+		);
+
+		return this.getTokenEndpoint().pipe(
+			switchMap((tokenEndpoint) => {
+				return this.httpClient
+					.post<TokenResponse>(tokenEndpoint, body.toString(), {
+						headers: headers,
+					})
+					.pipe(
+						tap((res) => this.login(res)),
+						map((res) => res.access_token)
+					);
+			})
+		);
 	}
-	async getTokenEndpoint() {
-		return (await this.getMetadata()).token_endpoint;
+
+	getTokenEndpoint(): Observable<string> {
+		return this.getMetadata().pipe(map((metadata) => metadata.token_endpoint));
 	}
-	async exchangeCodeWithToken(code: string) {
+
+	exchangeCodeWithToken(code: string): Observable<TokenResponse> {
 		let body = new URLSearchParams();
 		body.set("client_id", this.env.client_id);
 		body.set("client_secret", this.env.client_secret);
@@ -83,14 +160,15 @@ export class AuthService {
 			"Content-Type",
 			"application/x-www-form-urlencoded"
 		);
-		this.httpClient
-			.post<any>(await this.getTokenEndpoint(), body.toString(), {
-				headers: headers,
-			})
-			.subscribe((res) => {
-				this.login(res);
 
-				this.router.navigate(["/openstar/my-identity-card"]);
-			});
+		return this.getTokenEndpoint().pipe(
+			switchMap((tokenEndpoint) => {
+				return this.httpClient
+					.post<TokenResponse>(tokenEndpoint, body.toString(), {
+						headers: headers,
+					})
+					.pipe(tap((res) => this.login(res)));
+			})
+		);
 	}
 }

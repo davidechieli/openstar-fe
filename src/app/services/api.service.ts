@@ -9,18 +9,31 @@ import { AuthService } from "./auth.service";
 	providedIn: "root",
 })
 export class ApiService {
+	token: string | undefined;
+
 	constructor(
 		private httpClient: HttpClient,
 		private authService: AuthService
-	) {}
+	) {
+		this.authService.getAccessToken(false).subscribe((token) => {
+			this.token = token;
+		});
+	}
 
 	searchCompanies(searchQuery: string): Observable<ICompanies[]> {
-		// const headers: HttpHeaders = new HttpHeaders({
-		// 	Authorization: this.authService.getAccessToken(),
-		// });
 		return this.httpClient.get<ICompanies[]>(
 			`${environment.apiUrl}${Endpoint.COMMUNITY}/1/company/list`
 			//{ headers: headers }
+		);
+	}
+	postPublicFlag(): Observable<string> {
+		const headers: HttpHeaders = new HttpHeaders({
+			Authorization: `Bearer ${this.token}`,
+		});
+		return this.httpClient.post<any>(
+			`${environment.apiUrl}${Endpoint.COMMUNITY}/1/company/24/publicFlag`,
+			null,
+			{ headers: headers }
 		);
 	}
 }

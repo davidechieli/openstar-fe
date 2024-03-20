@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { environment } from "../../environments/environment";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 import { AuthService } from "../../services/auth.service";
+import { Observable } from "rxjs";
 
 @Component({
 	selector: "app-homepage",
@@ -11,16 +12,8 @@ import { AuthService } from "../../services/auth.service";
 	styleUrl: "./homepage.component.scss",
 })
 export class HomepageComponent {
-	authEndpoint: any = "";
+	constructor(public route: Router) {}
 
-	constructor(
-		public httpClient: HttpClient,
-		public route: Router,
-		private authService: AuthService
-	) {}
-	async ngOnInit(): Promise<void> {
-		this.authEndpoint = await this.authService.getAuthorizationUri();
-	}
 	hideLandingPage(): boolean {
 		// Check if the current route is '/openstar'
 		return this.route.url !== "/openstar";
