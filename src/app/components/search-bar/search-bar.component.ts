@@ -18,9 +18,9 @@ export class SearchBarComponent {
 	}
 	searchCompanies() {
 		this.searchResults = [];
-		// if (this.searchQuery.trim() !== "") {
+
 		this.apiService
-			.searchCompanies(this.searchQuery)
+			.searchCompanies()
 			.pipe(
 				map((companies) => {
 					// Filter companies based on searchQuery
@@ -36,8 +36,5 @@ export class SearchBarComponent {
 				console.log(data);
 				this.searchResults = data; // Assuming API returns results array
 			});
-		// } else {
-		// 	this.searchResults = [];
-		// }
 	}
 }

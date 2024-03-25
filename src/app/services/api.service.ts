@@ -20,7 +20,7 @@ export class ApiService {
 		});
 	}
 
-	searchCompanies(searchQuery: string): Observable<ICompanies[]> {
+	searchCompanies(): Observable<ICompanies[]> {
 		return this.httpClient.get<ICompanies[]>(
 			`${environment.apiUrl}${Endpoint.COMMUNITY}/1/company/list`
 			//{ headers: headers }
@@ -31,7 +31,7 @@ export class ApiService {
 			Authorization: `Bearer ${this.token}`,
 		});
 		return this.httpClient.post<any>(
-			`${environment.apiUrl}${Endpoint.COMMUNITY}/1/company/24/publicFlag`,
+			`${environment.apiUrl}${Endpoint.COMMUNITY}/1/company/4/publicFlag`,
 			null,
 			{ headers: headers }
 		);

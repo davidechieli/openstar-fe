@@ -6,7 +6,7 @@ import { AppComponent } from "./app.component";
 import { SharedModule } from "./modules/shared/shared.module";
 import { HomepageComponent } from "./components/homepage/homepage.component";
 import { HeaderComponent } from "./components/header/header.component";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbDropdownModule, NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { MyEsgIdentityComponent } from "./components/my-esg-commitment/my-esg-identity.component";
 import { PermissionsComponent } from "./components/permissions/permissions.component";
@@ -44,6 +44,8 @@ import { AuthService } from "./services/auth.service";
 		NgbModule,
 		HttpClientModule,
 		FormsModule,
+		NgbModule,
+		NgbDropdownModule,
 	],
 	providers: [provideAnimationsAsync(), AuthService],
 	bootstrap: [AppComponent],

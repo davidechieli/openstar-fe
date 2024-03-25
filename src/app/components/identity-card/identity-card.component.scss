@@ -2,49 +2,185 @@
 @import '../../../shared/font.scss';
 
 .card-container{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 0px;
-width: 901px;
-height: 494px;
-background: $primary;
-border: none;
-border-radius: 12px;
-}
-.card-detail-container{
-
-}
-
-.minicard-container{ 
     display: flex;
     flex-direction: column;
     padding: 0px;
-    width: 438.5px;
-    height: 200px;
-    background: $white;
-    border: 1px solid #ADB5BD;
+    width: 901px;
+    background: $primary;
+    border: none;
     border-radius: 12px;
 }
-.minicard-title{
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-padding: 24px 24px 16px 24px;
-margin:0;
-}
-.minicard-content{
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-color: $font-gray;
-margin:0;
-padding: 0 24px;
-}
-.minicard-footer{
-    padding:  30px 24px 18px 24px;
-    color:$primary;
-    text-decoration: none;
+
+.card-title{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    // font-weight: 600;
+    font-size: 36px;
+    color: $white;
+    margin:0;
 
 }
+.custom-drop{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 12px 0px 15px;
+    gap: 8px;
+    width: 105px;
+    height: 38px;
+    background: #FFFFFF;
+    border: 1px solid #28A6B2;
+    border-radius: 6px;
+    color:$primary;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+.drop-icon{
+    position: relative;
+    left: -30px;
+    color:red
+}
+.custom-select{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.card-title-subwrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    gap:16px;
+    
+}
+.card-title-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:24px 32.5px;
+    justify-content: space-between;
+}
+.complete-identity{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    padding-top:14px;
+    color: $white;
+    font-family: 'Inter';
+    line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.card-content-container{
+    position: relative; 
+    margin: 0 32.5px 24px 32.5px;
+    background: $white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+ 
+}
+.rounded-circle-top{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    right:  -16px;
+    top: -16px;
+    background: $primary;
+    border-radius: 16px;
+    
+}
+.rounded-circle-bottom{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    right: -16px;
+    bottom:  -16px;
+    background: $primary;
+    border-radius: 16px;
+}
+.card-generic-data{
+    position: relative;
+    padding: 24px;
+    width: 578px;
+    height: 380px;
+}
+.card-visibility{
+    flex-direction: column;
+    padding: 24px;
+    display: flex;
+    width: 275px;
+    height: 380px;
+}
+.company-name{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    color: #1B1B18;
+    margin:0;
+}
+.protocol{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+    color: #ADB5BD;
+    padding-bottom:24px;
+}
+.company-props{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+.props-key {
+    width: 160px; /* Adjust width as needed */
+    flex-shrink: 0; /* Prevent shrinking of the first span */
+}
+.company-props span {
+    margin-right: 10px; /* Adjust margin as needed */
+}
+.company-certifications{
+    display: flex;
+    flex-direction: row;
+    margin-top:20px;
+}
+.props-value{
+    margin: 0;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    color: #1B1B18;
+}
+.cert-icon{
+    width: 83px;
+    height: 83px;
+}
+.cert{
+    margin : 0 -35px 0 -8px ;
+}
+.cert-label{
+    background: #F8F9FA;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 10px;
+    position: relative;
+    right: 61px;
+    top: 26px;
+}
+.dashed-line{
+    position: absolute;
+    top:32px;
+    right:-1px;
+     
+}
+
+ 
+
+
+ 

@@ -1,32 +1,82 @@
 <div class="d-flex col-12 justify-content-center mt-5">
 	<div class="card-container">
-		<div class="card-detail-container"></div>
-	</div>
-</div>
-<div class="d-flex col-12 justify-content-center my-5 gap-3">
-	<div class="minicard-container">
-		<h1 class="minicard-title">Explore other's ESG Identity</h1>
-		<div>
-			<h3 class="minicard-content">
-				Explore ESG data of the other companies belonging to the Open* protocol.
-			</h3>
+		<div class="card-detail-container">
+			<div class="card-detail-title">
+				<div class="card-title-wrapper">
+					<div class="card-title-subwrapper">
+						<h1 class="card-title">My ESG Identity Card</h1>
+						<div class="custom-select">
+							<select class="form-select custom-drop">
+								<option
+									*ngFor="let year of years"
+									[value]="year"
+									[selected]="year === currentYear"
+								>
+									{{ year }}
+								</option>
+							</select>
+							<img
+								class="drop-icon"
+								src="../../../assets/dropdown-icon.svg"
+								alt="dropdown icon"
+							/>
+						</div>
+					</div>
+					<a class="complete-identity" routerLink="/openstar"
+						>View complete identity</a
+					>
+				</div>
+			</div>
+			<div class="card-content-container">
+				<div class="d-flex w-100">
+					<div class="card-generic-data">
+						<img class="dashed-line" src="../../../assets/dashed-line.svg" />
+						<span class="rounded-circle-top"></span>
+						<span class="rounded-circle-bottom"></span>
+						<h1 class="company-name">Acme</h1>
+						<div class="protocol">
+							Open-Star protocol registration: 15/02/2024
+						</div>
+						<div class="company-props">
+							<span class="props-key">Company sectors:</span
+							><span class="props-value">Trasporti</span>
+						</div>
+						<div class="company-props">
+							<span class="props-key">Company size:</span
+							><span class="props-value">Small</span>
+						</div>
+						<div class="company-props">
+							<span class="props-key">P.IVA:</span
+							><span class="props-value">67006641205</span>
+						</div>
+						<div class="company-props">
+							<span class="props-key">Communities:</span
+							><span class="props-value">Open-Star</span>
+						</div>
+						<div class="company-certifications">
+							<div class="cert">
+								<img
+									class="cert-icon"
+									src="../../../assets/certification-placeholder.svg"
+								/><span class="cert-label">certified</span>
+							</div>
+							<div class="cert">
+								<img
+									class="cert-icon"
+									src="../../../assets/certification-placeholder.svg"
+								/><span class="cert-label">certified</span>
+							</div>
+							<div class="cert">
+								<img
+									class="cert-icon"
+									src="../../../assets/certification-placeholder.svg"
+								/><span class="cert-label">certified</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-visibility">test</div>
+				</div>
+			</div>
 		</div>
-		<a routerLink="/openstar/explore-more" class="minicard-footer primary"
-			>Go exploring</a
-		>
-	</div>
-	<div class="minicard-container">
-		<h1 class="minicard-title">Manage Visibility Permissions</h1>
-		<div>
-			<h3 class="minicard-content">
-				Set visibility permissions of your ESG data in the Open* protocol.
-			</h3>
-		</div>
-		<a
-			routerLink="/openstar/permissions"
-			routerLinkActive="active"
-			class="minicard-footer primary"
-			>Go to permissions</a
-		>
 	</div>
 </div>

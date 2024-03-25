@@ -51,7 +51,6 @@ export class AuthService {
 	getLoginUrl(): Observable<string> {
 		return this.getAuthorizationUri().pipe(
 			map((authUri) => {
-				console.log(authUri);
 				return (
 					authUri +
 					"?" +
