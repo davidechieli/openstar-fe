@@ -1,0 +1,36 @@
+<div class="p-3">
+	<h2 class="title pb-0 m-0">Upload your ESG data</h2>
+	<h5 class="sub-title m-0">
+		The document should be in JSON format, aligned with Open-Star guidelines
+	</h5>
+	<div class="modal-content">
+		<!-- Input element for file selection, hidden by default -->
+		<input
+			type="file"
+			id="fileInput"
+			(change)="onFileSelected($event)"
+			style="display: none"
+			accept=".json"
+		/>
+
+		<!-- Drag and drop area -->
+		<div
+			class="drag-drop-area"
+			(dragover)="onDragOver($event)"
+			(dragleave)="onDragLeave($event)"
+			(drop)="onDrop($event)"
+			(click)="openFileExplorer()"
+		>
+			<div class="drag-drop-placeholder">
+				<img src="../../../assets/upload-icon2.svg" />
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="modal-buttons">
+			<!-- Buttons -->
+			<button class="cancel-btn" (click)="onCancel()">Cancel</button>
+			<button class="confirm-btn" (click)="onConfirm()">Confirm</button>
+		</div>
+	</div>
+</div>

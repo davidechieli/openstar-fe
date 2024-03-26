@@ -5,7 +5,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-
+import { MatDialogModule } from "@angular/material/dialog";
 @NgModule({
 	declarations: [],
 	imports: [
@@ -15,6 +15,7 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 		MatMenuModule,
 		MatToolbarModule,
 		MatSlideToggleModule,
+		MatDialogModule,
 	],
 	exports: [
 		MatIconModule,

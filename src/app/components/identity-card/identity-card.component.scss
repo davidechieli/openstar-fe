@@ -179,8 +179,62 @@
     right:-1px;
      
 }
-
+.disabled{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.2);
+}
  
+.card-title-new{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    
+}
 
-
+.card-subtitle-new{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+}
+.new-card{
+    padding-top:84px;
+    margin-left:48px;
+}
+.btn-new-survey{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 8px;
+    width: 200px;
+    height: 50px;
+    background: $primary;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    border:none;
+    color:$white;
+}
+.btn-new-survey:hover{
+    background:$primary-hover;
+}
  
+.btn-upload-data{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: $primary;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -22,14 +22,19 @@
 							/>
 						</div>
 					</div>
-					<a class="complete-identity" routerLink="/openstar"
+					<a
+						[ngClass]="{ disabled: isFirstLogin }"
+						[routerLink]="isFirstLogin ? null : '/openstar'"
+						class="complete-identity"
+						[attr.aria-disabled]="isFirstLogin ? 'true' : 'false'"
 						>View complete identity</a
 					>
 				</div>
 			</div>
 			<div class="card-content-container">
 				<div class="d-flex w-100">
-					<div class="card-generic-data">
+					<!-- already uploaded data for current year-->
+					<div *ngIf="!isFirstLogin" class="card-generic-data">
 						<img class="dashed-line" src="../../../assets/dashed-line.svg" />
 						<span class="rounded-circle-top"></span>
 						<span class="rounded-circle-bottom"></span>
@@ -71,6 +76,36 @@
 									class="cert-icon"
 									src="../../../assets/certification-placeholder.svg"
 								/><span class="cert-label">certified</span>
+							</div>
+						</div>
+					</div>
+					<!--First Login or no data for current year-->
+					<div *ngIf="isFirstLogin" class="card-generic-data">
+						<img class="dashed-line" src="../../../assets/dashed-line.svg" />
+						<span class="rounded-circle-top"></span>
+						<span class="rounded-circle-bottom"></span>
+						<div class="new-card">
+							<div class="card-title-new">
+								Your ESG Identity for 2024 is empty
+							</div>
+							<div class="card-subtitle-new">
+								Create a position for the current year by filling out the form
+								(partially or completely). Alternatively upload the document
+								with your data
+							</div>
+							<div
+								class="d-flex flex-direction-row align-items-center mt-3 gap-3"
+							>
+								<button
+									(click)="redirectToESGIdentity()"
+									class="btn-new-survey"
+								>
+									Create ESG Identity
+								</button>
+								<span (click)="openUploadModal()"
+									><a class="btn-upload-data">Upload data</a>
+									<img src="../../../assets/upload-icon.svg" />
+								</span>
 							</div>
 						</div>
 					</div>
