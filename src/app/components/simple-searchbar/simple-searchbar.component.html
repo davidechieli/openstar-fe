@@ -1,0 +1,14 @@
+<div class="searchbar-container">
+	<span class="searchbar-icon">
+		<img src="../../../assets/search-icon.svg" alt="Searchbar icon" />
+	</span>
+	<input
+		type="text"
+		class="form-control me-3 customized"
+		placeholder="Search for a company"
+		aria-label="Search"
+		aria-describedby="button-addon2"
+		[(ngModel)]="searchQuery"
+		(input)="debouncedSearch()"
+	/>
+</div>

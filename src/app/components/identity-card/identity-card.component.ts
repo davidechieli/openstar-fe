@@ -12,6 +12,7 @@ export class IdentityCardComponent {
 	years: number[] = [];
 	currentYear: number;
 	isFirstLogin: boolean = true;
+	isPrivate: boolean = true;
 
 	constructor(private router: Router, public dialog: MatDialog) {
 		const startYear = 2021;

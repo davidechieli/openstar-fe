@@ -109,7 +109,38 @@
 							</div>
 						</div>
 					</div>
-					<div class="card-visibility">test</div>
+					<div class="card-visibility-container" *ngIf="!isFirstLogin">
+						<div class="card-visibility">
+							<div class="visibility-wrapper">
+								<div class="visibility" [ngClass]="{ dark: !isPrivate }">
+									<div class="visibility-btn-lock" *ngIf="isPrivate">
+										<img src="../../../assets/locked-icon.svg" /> Private
+										Visibility
+									</div>
+								</div>
+								<div class="visibility-btn-unlock" *ngIf="!isPrivate">
+									<img src="../../../assets/unlocked-icon.svg" /> Public
+									Visibility
+								</div>
+								<div class="connections mt-2">52 connections</div>
+							</div>
+
+							<div class="visibility-wrapper">
+								<div class="visibility-middle">
+									<div>
+										<strong>{{ currentYear }}</strong>
+									</div>
+									<div>Questionnaire completion:</div>
+									<div class="big-number">55<span class="percent">%</span></div>
+								</div>
+							</div>
+							<div class="visibility-wrapper">
+								<div class="visibility-middle">
+									<div class="lastupdate">Last Update: 20/02/2024</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

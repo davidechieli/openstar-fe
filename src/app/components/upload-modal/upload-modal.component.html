@@ -1,5 +1,12 @@
 <div class="p-3">
-	<h2 class="title pb-0 m-0">Upload your ESG data</h2>
+	<div class="d-flex justify-content-between">
+		<h2 class="title pb-0 m-0">Upload your ESG data</h2>
+		<img
+			class="close-modal-icon"
+			src="../../../assets/close-modal-icon.svg"
+			(click)="onCancel()"
+		/>
+	</div>
 	<h5 class="sub-title m-0">
 		The document should be in JSON format, aligned with Open-Star guidelines
 	</h5>
