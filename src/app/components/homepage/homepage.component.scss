@@ -6,6 +6,9 @@
     background-position: 0 100%; /* Start the gradient from the bottom */
   }
 
+  .background-transition.light{  
+    background: linear-gradient(180deg, #FFFFFF 14.27%, #FFFFFF 67.77%, #D1F0F3 100%);
+  }
   .subtitle{
     font-family: 'Nunito Sans';
     font-style: normal;

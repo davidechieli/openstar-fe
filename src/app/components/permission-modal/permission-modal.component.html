@@ -1,0 +1,21 @@
+<div class="p-3">
+	<div class="modal-wrapper">
+		<h2 class="title pb-0 m-0">Remove access to your ESG data</h2>
+		<img
+			class="close-modal-icon"
+			src="../../../assets/close-modal-icon.svg"
+			(click)="onCancel()"
+		/>
+	</div>
+	<h5 class="sub-title m-0 pt-2">
+		By confirming the withdraw, this company will no longer have access to your
+		ESG Identity
+	</h5>
+	<div class="modal-footer">
+		<div class="modal-buttons">
+			<!-- Buttons -->
+			<button class="cancel-btn" (click)="onCancel()">Cancel</button>
+			<button class="confirm-btn" (click)="onConfirm()">Confirm</button>
+		</div>
+	</div>
+</div>

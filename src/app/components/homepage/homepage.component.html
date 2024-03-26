@@ -1,4 +1,9 @@
-<body class="background-transition">
+<body
+	[ngClass]="{
+		'background-transition': true,
+		light: isPermissions
+	}"
+>
 	<app-header></app-header>
 	<app-landing-page [hidden]="hideLandingPage()"></app-landing-page>
 	<router-outlet></router-outlet>

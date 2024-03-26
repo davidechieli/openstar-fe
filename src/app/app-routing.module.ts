@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ExploreMoreComponent } from "./components/explore-more/explore-more.component";
 import { HomepageComponent } from "./components/homepage/homepage.component";
-import { MyEsgIdentityComponent } from "./components/my-esg-identity/my-esg-identity.component";
+import { MyEsgIdentityComponent } from "./components/my-esg-commitment/my-esg-identity.component";
 import { PermissionsComponent } from "./components/permissions/permissions.component";
 import { LoginComponent } from "./components/login/login.component";
 import { LogoutComponent } from "./components/logout/logout.component";

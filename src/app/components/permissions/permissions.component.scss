@@ -1,11 +1,6 @@
 @import '../../../shared/color.scss';
 @import '../../../shared/font.scss';
  
-
-body{
-  background: linear-gradient(180deg, #FFFFFF 14.27%, #FFFFFF 67.77%, #D1F0F3 100%)!important;
-}
-
  .permission-container{
     padding: 0 40px;
  }
@@ -98,7 +93,80 @@ font-size: 16px;
 color: #6C757D;
 }
  
+/* companies-table.component.css */
+.odd-row {
+  background-color: #f8f9fa; /* Light gray */
+}
 
+.even-row {
+  background-color: #ffffff; /* White */
+}
+
+thead, tbody, tfoot, tr, td, th {
+ vertical-align: middle;
+ padding-left: 24px;
+}
+thead th {
+  height: 54px; /* Set the height of th elements in the table header */
+}
+
+tbody tr td {
+  height: 70px; /* Set the height of td elements in the table body */
+}
+
+.customized{
+  border: 1px solid #28A6B2;
+  border-radius: 12px;
+}
+ 
+.primary-color{
+  color:$primary
+}
+.visibility{
+padding: 4px 8px;
+background: $primary;
+border-radius: 4px;
+width: 63px;
+height: 20px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+text-align: center;
+cursor: pointer;
+color: #FFFFFF;
+}
+.visibility.dark{
+  padding: 4px 8px;
+  background: black;
+  border-radius: 4px;
+  width: 63px;
+  height: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  text-align: center;
+  color: #FFFFFF;
+  }
+.actions{
+  text-align: center;
+  width: 120px;
+  
+}
+thead th:first-child {
+  border-top-left-radius: 12px;
+}
+thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px; /* Add border-radius to the bottom-left corner of the first td in the last tr in the tbody */
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px; /* Add border-radius to the bottom-left corner of the first td in the last tr in the tbody */
+}
  
 
- 

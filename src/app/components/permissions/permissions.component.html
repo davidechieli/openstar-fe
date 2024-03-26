@@ -16,11 +16,50 @@
 				</label>
 			</div>
 		</div>
-		<h3 class="subtitle">
+		<h3 class="subtitle mt-3">
 			Here you can set the visibility permissions for each and all the companies
 			belonging to the Open* protocol. <br />
 			If you want to give permission to everyone, just hit the “Public” toggle.
 		</h3>
 		<app-simple-searchbar></app-simple-searchbar>
+		<!-- companies-table.component.html -->
+		<div class="customized mt-3">
+			<table class="table table-striped m-0">
+				<thead>
+					<tr>
+						<th class="primary-color">Company</th>
+						<th class="primary-color">Sector</th>
+						<th class="primary-color">Community</th>
+						<th class="primary-color">Permissions</th>
+						<th></th>
+						<!-- Empty header for the fifth column -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let company of companies; let i = index">
+						<td>{{ company.name }}</td>
+						<td>{{ company.sector }}</td>
+						<td>{{ company.community }}</td>
+						<td>{{ company.public }}</td>
+						<td class="actions">
+							<div
+								*ngIf="company.public === 'Hidden'"
+								(click)="openPermissionModal()"
+								class="visibility"
+							>
+								Allow
+							</div>
+							<div
+								*ngIf="company.public === 'Allowed'"
+								(click)="openPermissionModal()"
+								class="visibility dark"
+							>
+								Withdraw
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </ng-container>
