@@ -22,6 +22,7 @@ import { IdentityCardComponent } from "./components/identity-card/identity-card.
 import { BreadcrumbComponent } from "./components/breadcrumb/breadcrumb.component";
 import { AuthService } from "./services/auth.service";
 import { UploadModalComponent } from "./components/upload-modal/upload-modal.component";
+import { SimpleSearchbarComponent } from './components/simple-searchbar/simple-searchbar.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -38,6 +39,7 @@ import { UploadModalComponent } from "./components/upload-modal/upload-modal.com
 		IdentityCardComponent,
 		BreadcrumbComponent,
 		UploadModalComponent,
+  SimpleSearchbarComponent,
 	],
 	imports: [
 		BrowserModule,
