@@ -23,4 +23,10 @@ export class HomepageComponent {
 		// Check if the current route is '/openstar'
 		return this.router.url !== "/openstar";
 	}
+	hideSpacing() {
+		return (
+			this.router.url == "/openstar" ||
+			this.router.url == "/openstar/my-identity-card"
+		);
+	}
 }

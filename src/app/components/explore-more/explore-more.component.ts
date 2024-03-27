@@ -67,7 +67,7 @@ export class ExploreMoreComponent implements OnInit {
 	ngOnInit(): void {
 		const currentUrl = this.route.url;
 		// Check if the URL contains '/permissions'
-		if (currentUrl.includes("/permissions")) {
+		if (currentUrl.includes("/explore-more")) {
 			this.permissionsService.setPermissions(true);
 		} else {
 			this.permissionsService.setPermissions(false);
@@ -76,8 +76,8 @@ export class ExploreMoreComponent implements OnInit {
 
 	openCardModal(companyData: any) {
 		const dialogRef = this.dialog.open(CompanyCardModalComponent, {
-			width: "919px",
-			height: "494px",
+			// width: "919px",
+			// height: "494px",
 			data: {
 				companyData: companyData,
 			},
