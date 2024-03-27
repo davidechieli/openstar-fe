@@ -1,1 +1,46 @@
-<p>explore-more works!</p>
+<ng-container>
+	<div class="permission-container">
+		<app-breadcrumb [breadcrumbItems]="exploreBreadcrumb"></app-breadcrumb>
+		<div class="d-flex flex-direction-row align-items-center gap-5">
+			<h1 class="permission-title">Explore</h1>
+		</div>
+		<h3 class="subtitle mt-3">
+			Here you can set the visibility permissions for each and all the companies
+			belonging to the Open* protocol. <br />
+			If you want to give permission to everyone, just hit the “Public” toggle.
+		</h3>
+		<app-simple-searchbar></app-simple-searchbar>
+		<!-- companies-table.component.html -->
+		<div class="customized mt-3">
+			<table class="table table-striped m-0">
+				<thead>
+					<tr>
+						<th class="primary-color">Company</th>
+						<th class="primary-color">Sector</th>
+						<th class="primary-color">Community</th>
+						<th class="primary-color">Last Update</th>
+						<th class="primary-color">Visibility</th>
+						<th></th>
+						<!-- Empty header for the fifth column -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let company of companies; let i = index">
+						<td>{{ company.name }}</td>
+						<td>{{ company.sector }}</td>
+						<td>{{ company.community }}</td>
+						<td>{{ company.lastUpdate }}</td>
+						<td>{{ company.visibility }}</td>
+						<td class="actions">
+							<img
+								class="arrow-icon"
+								src="../../../assets/NE_arrow.svg"
+								(click)="openCardModal(company)"
+							/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</ng-container>

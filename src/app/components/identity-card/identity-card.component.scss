@@ -61,6 +61,7 @@
     align-items: center;
     padding:24px 32.5px;
     justify-content: space-between;
+    flex-grow: 1;
 }
 .complete-identity{
     font-style: normal;
@@ -287,20 +288,25 @@
     flex-direction: column;
     align-content: center;
     align-items: center;
+    flex-grow: 1;
 }
 .visibility-middle{
     display: flex;
     justify-content: end;
     flex-direction: column;
     align-items: flex-end;
+    flex-grow: 1;
 }
 
 .big-number{
+    display: flex;
     font-family: 'Nunito Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
     color: $primary;
+    flex-grow: 1;
+    margin-top: -20px;
 }
 .percent{
     font-family: 'Nunito Sans';
@@ -308,6 +314,9 @@
     font-weight: 600;
     font-size: 16px;
    
+}
+.percentage{
+    align-self: center;
 }
 .lastupdate{
     font-family: 'Nunito Sans';

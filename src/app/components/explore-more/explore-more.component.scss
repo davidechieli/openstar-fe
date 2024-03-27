@@ -1,0 +1,176 @@
+@import '../../../shared/color.scss';
+@import '../../../shared/font.scss';
+ 
+ .permission-container{
+    padding: 0 40px;
+ }
+ .permission-title{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    margin:0;
+ }
+ 
+/* The switch - the box around the slider */
+.switch {
+   position: relative;
+   display: inline-block;
+   width: 50px;
+   height: 20px;
+ }
+ 
+ /* Hide default HTML checkbox */
+ .switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+ }
+ 
+ /* The slider */
+ .slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #F8F9FA;
+   -webkit-transition: .4s;
+   transition: .4s;
+   border: 1px solid #28A6B2;
+ }
+ 
+ .slider:before {
+   position: absolute;
+   content: "";
+   height: 24px;
+   width: 24px;
+   left: -2px;
+   top: -2px;
+   background-color: white;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+ 
+ input:checked + .slider {
+   background-color: $primary;
+   
+ }
+ 
+ input:focus + .slider {
+   box-shadow: 0 0 1px $primary;
+   
+ }
+ 
+ input:checked + .slider:before {
+   -webkit-transform: translateX(26px);
+   -ms-transform: translateX(26px);
+   transform: translateX(26px);
+   border: 1px solid #28A6B2;
+ }
+ 
+ /* Rounded sliders */
+ .slider.round {
+   border-radius: 34px;
+   border: 1px solid #28A6B2;
+ }
+ 
+ .slider.round:before {
+   border: 1px solid #28A6B2;
+   border-radius: 50%;
+ }
+
+.mr3{
+   margin-right:16px;
+}
+ 
+.subtitle{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+color: #6C757D;
+}
+ 
+/* companies-table.component.css */
+.odd-row {
+  background-color: #f8f9fa; /* Light gray */
+}
+
+.even-row {
+  background-color: #ffffff; /* White */
+}
+
+thead, tbody, tfoot, tr, td, th {
+ vertical-align: middle;
+ padding-left: 24px;
+}
+thead th {
+  height: 54px; /* Set the height of th elements in the table header */
+}
+
+tbody tr td {
+  height: 70px; /* Set the height of td elements in the table body */
+}
+
+.customized{
+  border: 1px solid #28A6B2;
+  border-radius: 12px;
+}
+ 
+.primary-color{
+  color:$primary
+}
+.visibility{
+padding: 4px 8px;
+background: $primary;
+border-radius: 4px;
+width: 63px;
+height: 20px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+text-align: center;
+cursor: pointer;
+color: #FFFFFF;
+}
+.visibility.dark{
+  padding: 4px 8px;
+  background: black;
+  border-radius: 4px;
+  width: 63px;
+  height: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  text-align: center;
+  color: #FFFFFF;
+  }
+.actions{
+  text-align: center;
+  width: 120px;
+  
+}
+thead th:first-child {
+  border-top-left-radius: 12px;
+}
+thead th:last-child {
+  border-top-right-radius: 12px;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px; /* Add border-radius to the bottom-left corner of the first td in the last tr in the tbody */
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px; /* Add border-radius to the bottom-left corner of the first td in the last tr in the tbody */
+}
+
+.arrow-icon{
+    cursor: pointer;
+}
+ 
+

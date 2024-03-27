@@ -11,7 +11,7 @@ import { UploadModalComponent } from "../upload-modal/upload-modal.component";
 export class IdentityCardComponent {
 	years: number[] = [];
 	currentYear: number;
-	isFirstLogin: boolean = true;
+	isFirstLogin: boolean = false;
 	isPrivate: boolean = true;
 
 	constructor(private router: Router, public dialog: MatDialog) {
