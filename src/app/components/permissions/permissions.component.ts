@@ -65,10 +65,13 @@ export class PermissionsComponent implements OnInit {
 		this.apiService.postPublicFlag().subscribe();
 	}
 
-	openPermissionModal() {
+	openPermissionModal(companyVisibility: string) {
 		const dialogRef = this.dialog.open(PermissionModalComponent, {
 			width: "390px",
 			height: "235px",
+			data: {
+				companyVisibility: companyVisibility,
+			},
 		});
 	}
 }

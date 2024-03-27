@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { MatDialogRef } from "@angular/material/dialog";
+import { Component, Inject } from "@angular/core";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 
 @Component({
 	selector: "app-permission-modal",
@@ -7,7 +7,13 @@ import { MatDialogRef } from "@angular/material/dialog";
 	styleUrl: "./permission-modal.component.scss",
 })
 export class PermissionModalComponent {
-	constructor(public dialogRef: MatDialogRef<PermissionModalComponent>) {}
+	visibility: string;
+	constructor(
+		public dialogRef: MatDialogRef<PermissionModalComponent>,
+		@Inject(MAT_DIALOG_DATA) public data: { companyVisibility: string }
+	) {
+		this.visibility = data.companyVisibility;
+	}
 
 	onCancel(): void {
 		this.dialogRef.close();

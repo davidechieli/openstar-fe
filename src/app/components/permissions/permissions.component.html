@@ -44,14 +44,14 @@
 						<td class="actions">
 							<div
 								*ngIf="company.public === 'Hidden'"
-								(click)="openPermissionModal()"
+								(click)="openPermissionModal(company.public)"
 								class="visibility"
 							>
 								Allow
 							</div>
 							<div
 								*ngIf="company.public === 'Allowed'"
-								(click)="openPermissionModal()"
+								(click)="openPermissionModal(company.public)"
 								class="visibility dark"
 							>
 								Withdraw
