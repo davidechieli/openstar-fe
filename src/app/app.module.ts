@@ -24,6 +24,7 @@ import { AuthService } from "./services/auth.service";
 import { UploadModalComponent } from "./components/upload-modal/upload-modal.component";
 import { SimpleSearchbarComponent } from "./components/simple-searchbar/simple-searchbar.component";
 import { PermissionModalComponent } from "./components/permission-modal/permission-modal.component";
+import { CompanyCardModalComponent } from './components/company-card-modal/company-card-modal.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -42,6 +43,7 @@ import { PermissionModalComponent } from "./components/permission-modal/permissi
 		UploadModalComponent,
 		SimpleSearchbarComponent,
 		PermissionModalComponent,
+  CompanyCardModalComponent,
 	],
 	imports: [
 		BrowserModule,
