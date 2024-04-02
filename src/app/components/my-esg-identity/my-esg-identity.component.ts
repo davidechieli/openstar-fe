@@ -5,4 +5,9 @@ import { Component } from "@angular/core";
 	templateUrl: "./my-esg-identity.component.html",
 	styleUrl: "./my-esg-identity.component.scss",
 })
-export class MyEsgIdentityComponent {}
+export class MyEsgIdentityComponent {
+	esgBreadcrumb = [
+		{ label: "Home", link: "/openstar/my-identity-card" },
+		{ label: "My ESG Identity", link: "/openstar/my-esg-identity" },
+	];
+}

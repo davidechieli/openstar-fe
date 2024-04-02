@@ -8,7 +8,7 @@ import { HomepageComponent } from "./components/homepage/homepage.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { NgbDropdownModule, NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
-import { MyEsgIdentityComponent } from "./components/my-esg-commitment/my-esg-identity.component";
+import { MyEsgIdentityComponent } from "./components/my-esg-identity/my-esg-identity.component";
 import { PermissionsComponent } from "./components/permissions/permissions.component";
 import { ExploreMoreComponent } from "./components/explore-more/explore-more.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -24,7 +24,7 @@ import { AuthService } from "./services/auth.service";
 import { UploadModalComponent } from "./components/upload-modal/upload-modal.component";
 import { SimpleSearchbarComponent } from "./components/simple-searchbar/simple-searchbar.component";
 import { PermissionModalComponent } from "./components/permission-modal/permission-modal.component";
-import { CompanyCardModalComponent } from './components/company-card-modal/company-card-modal.component';
+import { CompanyCardModalComponent } from "./components/company-card-modal/company-card-modal.component";
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -43,7 +43,7 @@ import { CompanyCardModalComponent } from './components/company-card-modal/compa
 		UploadModalComponent,
 		SimpleSearchbarComponent,
 		PermissionModalComponent,
-  CompanyCardModalComponent,
+		CompanyCardModalComponent,
 	],
 	imports: [
 		BrowserModule,
